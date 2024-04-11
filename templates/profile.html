@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block container %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .profile-info, .change-password-form {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 50px; /* Нижний отступ */
+    }
+    .profile-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    .profile-info .avatar {
+        flex: 0 0 100px;
+        overflow: hidden;
+    }
+    .profile-info .avatar img {
+        width: 100%;
+        height: auto;
+    }
+    .profile-info .avatar .default-avatar {
+        width: 100%;
+        height: auto;
+    }
+    .profile-info .details {
+        flex: 1;
+        padding-left: 20px;
+    }
+    .profile-info .details h2 {
+        margin-top: 0;
+        color: #555;
+    }
+    .profile-info .details p {
+        margin: 5px 0;
+        color: #777;
+    }
+    .change-password-form {
+        margin-top: 50px;
+    }
+    .change-password-form input {
+        width: 98%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .change-password-form button {
+        background: linear-gradient(to right, #007bff, #0056b3);
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .change-password-form button:hover {
+        background: linear-gradient(to right, #0056b3, #007bff);
+    }
+
+</style>
+
+<h1>User Profile</h1>
+<div class="profile-info">
+    <div class="avatar">
+        <img class="default-avatar" src="https://cdn-icons-png.freepik.com/512/8895/8895458.png?ga=GA1.1.1387950089.1712506419&" alt="Profile Photo">
+    </div>
+    <div class="details">
+        <h2>{{ user.username }}</h2>
+        <p>Name: {{ user.first_name }} {{ user.last_name }} </p>
+        <p>Email: {{ user.email }}</p>
+        <p>Joined: {{ user.date_joined}}</p>
+    </div>
+{% endblock %}
